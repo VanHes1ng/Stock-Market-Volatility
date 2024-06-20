@@ -1,0 +1,14 @@
+This system is designed to provide valuable insights into future market movements,
+enabling users to make informed decisions regarding their investments without directly executing trades. 
+It leverages the VIX (CBOE Volatility Index) as a key indicator for predicting trends, 
+in the SPY (S&P 500 ETF) market.
+
+Z-score is a statistical measurement that describes a value's relationship to the mean of a group of values. 
+Z-score is measured in terms of standard deviations from the mean.
+
+When the Z - score of **VIX indicates decreasing volatility** :green[***which is highlighted on chart with green shades (Z < -1)***], suggesting a more stable market environment, 
+the system implies that SPY may experience **an upward trend**. 
+Conversely, when the **VIX suggests increasing volatility** :red[***which is highlighted on chart with red shades (Z > 1)***], indicating potential market turbulence, 
+the system helps users consider strategies that account for **potential market downturns**.
+
+This information aids users in considering investment strategies that align with potential market improvements.
