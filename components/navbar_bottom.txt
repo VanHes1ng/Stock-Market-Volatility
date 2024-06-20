@@ -1,0 +1,5 @@
+<nav class="bar sticky-bottom navbar-expand-lg navbar-dark" style="background-color: black;">
+<div class="container-fluid">
+    <a class="navbar-brand" href="#">Stock Volatility 2023</a>
+</div>
+</nav>
