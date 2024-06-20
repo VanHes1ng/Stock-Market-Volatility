@@ -1,0 +1,5 @@
+VIX: The Fear Gauge
+The VIX, or the Volatility Index, 
+is a real-time market index representing the market's expectations for volatility over the coming 30 days. 
+Often referred to as the "fear gauge" or "fear index," 
+it is calculated and published by the Chicago Board Options Exchange (CBOE).
