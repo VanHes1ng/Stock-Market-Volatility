@@ -5,9 +5,9 @@ import numpy as np
 import pandas as pd
 
 
-@st.cache_data
+@st.cache_resource
 def get_shades(fig, data):
-    below_threshold = data["Z"] < 0
+    below_threshold = data["Z"] < -0.5
     start_indices = data.index[below_threshold]
 
     for start in start_indices:
@@ -26,7 +26,7 @@ def get_shades(fig, data):
 
         )
 
-    above_threshold = data["Z"] > 0
+    above_threshold = data["Z"] > 0.5
     start_indices1 = data.index[above_threshold]
 
     for start in start_indices1:
