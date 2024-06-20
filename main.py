@@ -6,7 +6,7 @@ import datetime
 import numpy as np
 import plotly.graph_objects as go
 from functions import main_plot, z_score
-import time
+
 
 # Set up the Streamlit app configuration
 
