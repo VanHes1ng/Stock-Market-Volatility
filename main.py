@@ -5,6 +5,7 @@ import pandas as pd
 import datetime
 import numpy as np
 from   functions import main_plot, z_score
+import matplotlib.pyplot as plt
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -50,9 +51,9 @@ st.markdown(navbar, unsafe_allow_html=True)
 @st.cache_data
 def download_data(ticker, start, end, interval):
     data = yf.download(ticker, 
-                       start=start, 
-                       end=end,
-                       interval=interval)
+                       start    = start, 
+                       end      = end,
+                       interval = interval)
     return data
 
 # Layout setup using Streamlit columns
