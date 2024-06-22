@@ -59,8 +59,6 @@ def download_data(ticker, start, end, interval):
     return data
 
 col1,  col2,  col3, _  = st.columns([1, 10, 3, 0.5])
-col11, col22, col33, _ = st.columns([1, 10, 3, 0.5])
-
 
 # Inputs
 with col3:
@@ -68,63 +66,44 @@ with col3:
     st.subheader("Settings")
     
     interval = st.selectbox("TimeFrame", ('1d','5d','1wk','1mo','3mo'))
-    year = st.slider("  **Select Start Year:**", 2000, 2023, 2022)
-    end_year = st.slider("  **Select End Year:**", 2000, 2030, 2025)
+    year  = st.slider("  **Select Start & End Years:**", 2000, 2040, (2022, 2025))
+    z_len = st.number_input("Z Score Length", 0, 100, 40, step=1)
+    start_year = datetime.datetime(year[0], 1, 1)
+    end_year   = datetime.datetime(year[1], 1, 1)
 
-    start_year = datetime.datetime(year, 1, 1)
-    end_year = datetime.datetime(end_year, 1, 1)
+    # Get data
+    spy = download_data("^GSPC", start_year, end=end_year, interval=interval)
+    vix = download_data("^VIX", start_year, end=end_year, interval=interval)
 
-    set_button = col3.button("Set")
-    if set_button:
-        # Get data
-        spy = download_data("^GSPC", start_year, end=end_year, interval=interval)
-        vix = download_data("^VIX", start_year, end=end_year, interval=interval)
+    data = pd.DataFrame()
+    data["SPY"] = spy["Adj Close"]
+    data["VIX"] = vix["Close"]
 
-        data = pd.DataFrame()
-        data["SPY"] = spy["Adj Close"]
-        data["VIX"] = vix["Close"]
+    data["Z"] = z_score(data["VIX"], z_len)
 
-        data["Z"] = z_score(data["VIX"], 20)
+    z_sc = np.round(data["Z"].iloc[-1], 2)
+    delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
 
-
-
-if not set_button:
     st.write("#")
-    col2.info('''Set Settings \n
-              Selecting big range of data on 1d timeframe can take few minutes to load''', icon="🚨")
+    c1, c2, c3 = st.columns([1, 1, 1])
 
-if set_button:
+    c2.metric(label="Z-Score", value=z_sc, delta=delta,delta_color="normal")
+
+  
 
     with col2:
         st.subheader("Z-score of VIX and SPY")
 
-
-        with st.status("Downloading data...", state="running", expanded = False) as status:
-  
-            main_plot(data)
-            status.update(label="Download complete!", state="complete", expanded=True)
-
-
+        main_plot(data)
         st.write(desc)
 
-    with col22:
         st.markdown("***")
-        st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
-        
-
-        st.markdown("***")
-        with col3:
-            z_sc = np.round(data["Z"].iloc[-1], 2)
-            delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
-            st.metric(label="Z-Score", value=z_sc, delta=delta,
-            delta_color="normal")
-
-
-    with col33:
         st.subheader("CBOE Volatility Index")
+        st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
         st.markdown(vix_)
 
-        st.markdown("***")
+
+
 
 
 st.write("---")
@@ -140,4 +119,3 @@ st.markdown("""
 
 
 st.markdown(navbar_bottom, unsafe_allow_html=True)
-
