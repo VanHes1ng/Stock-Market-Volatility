@@ -15,11 +15,11 @@ It utilizes the VIX (CBOE Volatility Index) as a crucial indicator for forecasti
 
 2. **Interpreting VIX and Z-Score:**
    - **Decreasing Volatility (Z < 0):** Highlighted on the chart with green shades, indicating a more stable market environment. 
-     In this scenario, the system suggests that SPY may potentially experience an upward trend.
+     In this scenario, the system suggests that SPY may **potentially experience an upward trend**.
 ![plot](components/up_trend.png)
    
    - **Increasing Volatility (Z > 0):** Highlighted on the chart with red shades, signaling potential market turbulence. 
-     The system assists users in considering strategies that accommodate potential market downturns.
+     The system assists users in considering strategies that accommodate **potential market downturns**.
 ![plot](components/down_trend.png)
 
 3. **Settings:**
