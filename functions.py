@@ -6,10 +6,9 @@ import matplotlib.pyplot as plt
 
 def main_plot(data):
     # Sample data with datetime index
-    df = pd.DataFrame(data)
-
+    df       = pd.DataFrame(data)
     # Create the plot with two y-axes
-    fig, ax1 = plt.subplots(figsize=(10, 4), dpi=100)
+    fig, ax1 = plt.subplots(figsize=(10, 5), dpi=1000)
 
     # Plot Z on the first y-axis
     color="green"
@@ -37,8 +36,8 @@ def main_plot(data):
 
 def z_score(src, length):
     #The standard deviation is the square root of the average of the squared deviations from the mean, i.e., std = sqrt(mean(x)), where x = abs(a - a.mean())**2.
-    basis = src.rolling(length).mean()
-    x = np.abs(src - basis)**2
-    stdv = np.sqrt(x.rolling(length).mean())
-    z = (src-basis)/ stdv
+    basis   = src.rolling(length).mean()
+    x       = np.abs(src - basis)**2
+    stdv    = np.sqrt(x.rolling(length).mean())
+    z       = (src-basis)/ stdv
     return z
