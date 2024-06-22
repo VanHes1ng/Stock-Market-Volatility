@@ -134,7 +134,6 @@ with st.expander("**About**"):
         The Stock Market Volatility Prediction System provides valuable insights into future market movements, 
         empowering users to make informed investment decisions without executing trades directly. 
         It utilizes the VIX (CBOE Volatility Index) as a crucial indicator for forecasting trends within the SPY (S&P 500 ETF) market.
-        ![plot](components/main.png)
 
 
         **Key Concepts:**
