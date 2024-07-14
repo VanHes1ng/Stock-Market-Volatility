@@ -174,7 +174,7 @@ st.markdown("""
 
     Copyright 2023 Snowflake Inc. All rights reserved.
     
-    \nAuthor @VanHe1sing\n X: https://x.com/sxJEoRg7wwLR6ug\n TradingView: https://www.tradingview.com/u/VanHe1sing/\n Telegram: https://t.me/IvanKocherzhat
+    \nAuthor @VanHe1sing\n X: https://x.com/Van_He1sing\n TradingView: https://www.tradingview.com/u/VanHe1sing/\n Telegram: https://t.me/IvanKocherzhat
     """)
 
 # Render bottom navigation bar content
