@@ -48,7 +48,6 @@ navbar_bottom  = open('components/navbar_bottom.txt').read()
 st.markdown(navbar, unsafe_allow_html=True)
 
 # Define a function to download S&P 500 data and cache it for optimized performance
-@st.cache_data
 def download_data(ticker, start, end, interval):
     data = yf.download(ticker, 
                        start    = start, 
